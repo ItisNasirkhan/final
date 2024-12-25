@@ -70,7 +70,8 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 
 
 
-Route::get('/search', [AdminController::class, 'search'])->name('search');
+Route::get('/product/search', [AdminController::class, 'searchServices'])->name('product.search');
+
 
 
 Route::get('/dashboard', function () {
