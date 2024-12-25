@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -72,7 +74,16 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 
 Route::get('/product/search', [AdminController::class, 'searchServices'])->name('product.search');
 
+//api routes
 
+Route::name('order.')->prefix('order')->group(function() {
+    Route::get('/', [OrderController::class, 'index'])->name('index');
+    Route::get('create', [OrderController::class, 'create'])->name('create');
+    Route::post('store', [OrderController::class, 'store'])->name('store');
+    Route::get('edit/{id}', [OrderController::class, 'edit'])->name('edit');
+    Route::post('update', [OrderController::class, 'update'])->name('update');
+    Route::get('destroy/{id}', [OrderController::class, 'destroy'])->name('destroy');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
