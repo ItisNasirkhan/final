@@ -22,6 +22,14 @@
             <label for="categorie_id" class="form-label">Category</label>
             <input type="number" class="form-control" name="categorie_id" id="categorie_id" required>
         </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Product Image</label>
+            <input type="file" class="form-control" name="image" id="image">
+            @if($product->image)
+            <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" style="max-height: 150px; margin-top: 10px;">
+            @endif
+        </div>
+
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

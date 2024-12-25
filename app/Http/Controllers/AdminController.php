@@ -40,12 +40,18 @@ class AdminController extends Controller
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
             'categorie_id' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-
+    
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('products', 'public');
+        }
+    
         Product::create($data);
-
+    
         return redirect()->route('admin.index')->with('success', 'Product created successfully.');
     }
+    
 
     /**
      * Show the form for editing the specified product.
@@ -66,13 +72,31 @@ class AdminController extends Controller
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
             'categorie_id' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-
+    
         $product = Product::findOrFail($id);
+    
+        if ($request->hasFile('image')) {
+            // Delete the old image manually
+            if ($product->image) {
+                $oldImagePath = public_path('storage/' . $product->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+    
+            // Store the new image
+            $newImagePath = $request->file('image')->store('products', 'public');
+            $data['image'] = $newImagePath;
+        }
+    
         $product->update($data);
-
+    
         return redirect()->route('admin.index')->with('success', 'Product updated successfully.');
     }
+    
+
 
     /**
      * Remove the specified product from storage.

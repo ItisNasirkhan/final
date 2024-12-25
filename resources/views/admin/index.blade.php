@@ -18,36 +18,43 @@
         </div>
 
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($products as $product)
-            <tr>
-                <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->price }}</td>
-                <td>{{ $product->quantity }}</td>
-                <td>{{ $product['category']['name'] }}</td>
-                <td>
-                    <a href="{{ route('admin.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="{{ route('admin.show', $product->id) }}" class="btn btn-warning btn-sm">Show</a>
-                    <form action="{{ route('admin.destroy', $product->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
+       <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach($products as $product)
+    <tr>
+        <td>{{ $product->id }}</td>
+        <td>{{ $product->name }}</td>
+        <td>{{ $product->price }}</td>
+        <td>{{ $product->quantity }}</td>
+        <td>{{ $product['category']['name'] }}</td>
+        <td>
+            @if($product->image)
+                <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" style="max-height: 50px;">
+            @endif
+        </td>
+        <td>
+            <a href="{{ route('admin.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{{ route('admin.show', $product->id) }}" class="btn btn-warning btn-sm">Show</a>
+            <form action="{{ route('admin.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </td>
+    </tr>
+    @endforeach
+</tbody>
+
     </table>
 </div>
 
