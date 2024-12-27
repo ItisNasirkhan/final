@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -13,7 +15,7 @@ Route::get('/', function () {
     return view('home.index_content');
 });
 
-
+Route::get('/', [HomeController::class, 'index_content'])->name('home.index_content');
 
 Route::get('/index', [HomeController::class, 'index']);
 Route::get('/index', [HomeController::class, 'index_content']);
@@ -22,7 +24,7 @@ Route::get('/shop', [PagesController::class, 'shop_content']);
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/contact', [PagesController::class, 'contact_content']);
 
-
+Route::resource('admin', AdminController::class);
 // Index (List all resources)
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
@@ -68,7 +70,8 @@ Route::put('/categories/{category}', [CategoryController::class, 'update'])->nam
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 
-
+Route::get('/product-details', [ProductController::class, 'showDetails'])->name('product.details');
+Route::get('/product-details1', [ProductController::class, 'showDetails'])->name('product.details1');
 
 
 

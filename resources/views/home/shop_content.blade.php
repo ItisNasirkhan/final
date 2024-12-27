@@ -1,4 +1,4 @@
-@extends('home.shop')
+@extends('home.index')
 
 @section('content')
 <section id="page-header">

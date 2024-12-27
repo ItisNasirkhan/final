@@ -1,25 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="{{ asset('home/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
-    @include('home.header')
-    @include('home.pro-content')
-    @include('home.newsletter')
-    @include('home.footer')
-    
+@extends('home.index')
 
-  
-    <script src="{{ asset('home/script.js') }}"></script>
+@section('content')
+<section id="prodetail" class="section-p1">
+        <div class="single-pro-image">
+            <img src="../home/images/products/f1.jpg" alt="" width="100%" id="mainimg">
+            <div class="small-img-group">
+                <div class="small-image-column">
+                    <img src="../home/images/products/f1.jpg" class="small-img" alt="" width="100%">
+                </div>
+                <div class="small-image-column">
+                    <img src="../home/images/products/f2.jpg" class="small-img" alt="" width="100%">
+                </div>
+                <div class="small-image-column">
+                    <img src="../home/images/products/f3.jpg" class="small-img" alt="" width="100%">
+                </div>
+                <div class="small-image-column">
+                    <img src="../home/images/products/f4.jpg" class="small-img" alt="" width="100%">
+                </div>
+            </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
-</body>
-</html>
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / T-shirt</h6>
+            <h4>Men's Fashion T-shirt</h4>
+            <h2>$139.00</h2>
+            <select name="select size" id="">
+              <option value="">select the size</option>
+              <option value="">sm</option>
+              <option value="">l</option>
+              <option value="">xl</option>
+              <option value="">xxl</option>
+            </select>
+            <input type="number" value="1">
+            <button>Add to cart</button>
+            <h4>Product detail</h4>
+            <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab blanditiis quos a, velit porro minima dolorem aut, delectus reiciendis, distinctio alias doloremque nam voluptate esse molestiae! Modi accusamus nihil tempora soluta dolore quasi omnis at sunt earum. Iure, excepturi voluptate.</span>
+        </div>
+    </section>
+    <section id="product1" class="section-p1">
+      <h2>Feature product</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="../home/images/products/n1.jpg" alt="">
+          <div class="des">
+                <p>adidas</p>
+                <h5>Cartoon Austranaut T-Shirt</h5>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>$78</h4>
+                <div class="cart22">
+                  <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                  </div>
+          </div>
+         
+        </div>
+        <div class="pro">
+          <img src="../home/images/products/n2.jpg" alt="">
+          <div class="des">
+                <p>adidas</p>
+                <h5>Cartoon Austranaut T-Shirt</h5>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>$78</h4>
+                <div class="cart22">
+                  <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+          </div>
+         
+        </div>
+        <div class="pro">
+          <img src="../home/images/products/n3.jpg" alt="">
+          <div class="des">
+                <p>adidas</p>
+                <h5>Cartoon Austranaut T-Shirt</h5>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>$78</h4>
+                <div class="cart22">
+                  <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+          </div>
+         
+        </div>
+        <div class="pro">
+          <img src="../home/images/products/f4.jpg" alt="">
+          <div class="des">
+                <p>adidas</p>
+                <h5>Cartoon Austranaut T-Shirt</h5>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>$78</h4>
+                <div class="cart22">
+                  <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+          </div>
+         
+        </div>
+        
+        
+        
+       
+      
+      </div>
+    </section>
+    @endsection
